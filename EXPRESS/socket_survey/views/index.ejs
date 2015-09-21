@@ -1,0 +1,69 @@
+<html>
+<head>
+ <title>Form Survey</title>
+</head>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+            // we'll write all the socket stuff after the above line!
+            $('form').submit(function(e){
+            	e.preventDefault(); // prevents the form from submiting
+
+            
+            	// grabs the values from the form
+            	socket.emit("form_submission", {
+            	 name: $('#name').val(),
+            	 locations: $('#locations').val(),
+            	 languages: $('#languages').val()
+
+            	});
+            	// bring information from the server and prints on screen
+            	socket.on("updated_message", function(data){
+            		console.log(data.response);
+            	$('#info').html('<p>' + data.response  + '</p>');
+            	})
+
+            });
+
+        })
+    </script>
+<body>
+ <h3>Form Survey</h3>
+ <div id="info"></div>
+ <form action="/result" method="post">
+ 	<label for="name">Your name: </label>
+ 	<input type="text" name="name" id="name" placeholder="Your Name">
+
+ 	</br>
+ 	</br>
+
+ 	<label for="locations">Dojo Locations: </label>
+ 	<select name="locations" id="locations">
+ 		<option>Mountain View</option>
+ 		<option>San Jose</option>
+ 		<option>Los Angeles</option>
+ 	</select> 
+
+ 	</br>	
+ 	</br>
+
+ 	<label for="languages">Favorite Languages:</label>
+ 	<select name="languages" id="languages">
+ 		<option>Javascript</option>
+ 		<option>Php</option>
+ 		<option>Ruby</option>
+ 	</select> 
+
+ 	</br>	
+ 	</br>
+
+ 	<input type="submit" value="send">
+ </form>
+ <hr>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+body, html{
+	margin: 0;
+	padding: 0;
+}
+
+.container{
+	width: 100%;
+	padding: 20px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#chat-container{
+	max-width: 700px;
+	height: 400px;
+	background-color: #fafafa;
+	padding: 20px;
+	border:1px solid grey;
+	margin: 30px auto;
+}
+
+input[type="text"]{
+	width: 700px;
+	height: 25px;
+	display: block;
+	padding: 10px;
+	margin: 0 auto 30px;
+	font-size: 1.2em;
+}
+
+input[type="submit"]{
+	background-color: #138dd8;
+	padding: 20px;
+	text-align: center;
+	color: #fff;
+	margin: 0 auto;
+	border: none;
+	width: 100px;
+	height: 40px;
+	padding-top: 15px;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	button{
+		background-color: blue;
+		color: #fff;
+		padding: 15px;
+	}
+
+	.red{
+		background-color: red;
+	}
+
+	.green {
+		background-color: green;
+	}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+function colorChange(){
+	
+}
+
+    $("button").click(function(){
+       $(this).toggleClass("red");
+    });
+    $("button").hover(function(){
+    	$(this).toggleClass("green");
+    });
+});
+</script>
+
+</head>
+<body>
+
+<button>Click Me</button>
+
+
+
+</body>
+</html>

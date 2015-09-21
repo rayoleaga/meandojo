@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		button{
+			background-color: blue;
+			color: #fff;
+			padding: 15px;
+		}
+
+		.red{
+			background-color: red;
+		}
+
+		.green {
+			background-color: green;
+		}
+
+		#photo{
+			border-radius: 50%;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+		$.get("https://graph.facebook.com/v2.4/me?fields=id,first_name,last_name,picture,birthday,photos{album,images}&access_token=CAACEdEose0cBAIAZCq5ioH0NyPtZB4nZAlrKgm1Kf5YEE6IIKmNn0rSfzYuutjz365sGVSO33HcXHnLhZCfuGb6OWJM7nLZCLkU7udXZCd4ZBEyQKKOkXK04KFkcD9uva3YLgtQlbpDDhxM7kWPOD2K1R7WQcPqG8e7yWJCPrUQUZBJTaZBSQgLZC9oChBE6TfotiRiHFVFu34LwZDZD", displayZuck)
+
+	
+
+		function displayZuck(data) {
+			console.log(data);
+
+			$( "img" ).attr({
+				src: data.picture.data.url,
+				title: "Mark",
+				alt: "Mark Photo"
+			});
+
+			$("#name").append(data.first_name + " " + data.last_name);
+			$("#dob").append("Date of birth: " + data.birthday);
+			//console.log(data.photos.data[0].images[0].source);
+
+			var allPhotos = data.photos.data;
+
+
+			for(var i = 0; i < 6; i++){
+				
+
+				
+						var src = data.photos.data[i].images[i].source;
+						
+					$(".photo1").append('<img width="200" src=' + src + '>');
+				
+
+
+				};
+
+					
+
+			
+			$(".photo1").prepend("<h1>" + data.photos.data[0].album.name +"</h1>");
+		};
+	</script>
+
+</head>
+<body>
+
+	<img id="photo" width="60" src="">
+	<p id="name"></p>
+	<p id="dob"></p>
+	<div class="photo1">
+
+	</div>
+
+
+
+</body>
+</html>

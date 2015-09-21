@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Epic Button</title>
+</head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+            var socket = io.connect();
+		$('button#count-btn').click(function(){
+		
+            	socket.emit("click_count");
+            
+            	socket.on("updated_count", function(data){
+            		console.log(data.response);
+            	$('#info').html('<p>' + data.response  + '</p>');
+            	}); // socket.on ned
+            }); // count btn click end
+			
+			socket.emit("reset_func");
+            socket.on("reset_btn", function(data){
+            $('button#reset-btn').click(function(){
+            	$('#info').html(data.response);
+            }); //reset-btn ed]nds
+		}); //socket.on ends
+
+	}); //document.ready end
+</script>
+<body>
+<div id="info"></div>
+<button id="count-btn">Push the epic button</button>
+<br>
+<br>
+<button id="reset-btn">Reset Count</button>
+</body>
+</html>
+		
+            
+
+
+            
+
+
+            	

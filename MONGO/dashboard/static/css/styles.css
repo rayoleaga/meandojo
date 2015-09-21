@@ -1,0 +1,23 @@
+#sidebar{
+	background-color: #00BCD7;
+	max-height: 20%;
+	height: 100vh;
+	display: inline-block;
+	padding: 20px;
+	text-align: center;
+}
+
+#info{
+	background-color: #fafafa;
+	display: inline-block;
+	width: 77%;
+	height: 100vh;
+	vertical-align: top;
+	padding: 20px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#profile{
+	border-radius: 50%;
+}

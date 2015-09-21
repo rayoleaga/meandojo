@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mongoose</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+<body>
+<!-- user input -->
+	<form action="/users" method="post">
+		<input type="text" name="name" id="name" placeholder="Name">
+		<input type="text" name="age" id="age" placeholder="Age">
+		<input type="submit" value="send">
+	</form>
+
+
+
+<% for (var i in response) { %>
+    
+       <h3>Name: <%= response[i].name %></h3>
+       <h4>Age: <%= response[i].age %></h4><br>
+   <% } %>
+
+</body>
+</html>

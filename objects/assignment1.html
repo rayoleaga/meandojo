@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vehicle Objects</title>
+</head>
+<body>
+<script type="text/javascript">
+	function vehicleConstructor(name, wheels, passengers, speed){
+		//var vehicle = {};
+		this.name = name;
+		this.wheels = wheels;
+		this.passengers = passengers;
+		this.speed = speed;
+		this.makeNoise = function(noise){
+			console.log(noise);
+
+		// private variable
+		var distance_travelled = 0;
+		var self = this;
+
+		// private method
+		var updateDistanceTravelled = function(distance){
+			console.log(distance * self.speed);
+		}
+
+		}
+		
+
+	}
+
+	var Bike = new vehicleConstructor("BMX", 2, 1, 18);
+	//Bike.makeNoise("ring ring!");
+
+	var Car = new vehicleConstructor("Sedan", 4, 6, 120);
+	//Car.makeNoise("Honk honk!");
+
+	var Bus = new vehicleConstructor("School Bus", 4, 60, 80);
+	Bus.PickupPassengers = function(passengers){
+		console.log(Bus.passengers + passengers);
+	}
+	//Bus.PickupPassengers(10);
+
+
+
+
+</script>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	// PRIVATE VARIABLE DECLARED HERE
+  var privateVar = "This is a private variable";
+  var self = this; // this is what we need to do to keep track of this
+  // PRIVATE METHOD DECLARED HERE
+  var privateMethod = function() {
+    console.log("this is a private method for " + self.name);     // refer to name via self
+  } 
+</script>

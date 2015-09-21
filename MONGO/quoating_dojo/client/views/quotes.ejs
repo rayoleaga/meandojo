@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quotes</title>
+</head>
+<body>
+	<a href="/"><button>Add a quote</button></a>
+	<% for(var i in response){  %>
+	<h2><%= response[i].name %></h2>
+	<p><%= response[i].quote %></p>
+	<% } %>
+
+</body>
+</html>

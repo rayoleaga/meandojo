@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javasrcript object sample</title>
+</head>
+<body>
+<script type="text/javascript">
+	
+function PersonConstructor(name,age,occupation){
+	
+	this.name = name;
+	this.age = age;
+	this.occupation = occupation;
+
+}
+
+PersonConstructor.prototype.greeting = function(){
+	console.log("Hello my name is " + this.name + " I am " + this.age + " years old. I want to be a " + this.occupation + " when I grow up!");
+	return this;
+}
+
+PersonConstructor.prototype.question = function(){
+	console.log("Do you remember my name? ");
+	return this;
+}
+
+ray = new PersonConstructor("Ray", 34, "Web Developer");
+ray.greeting().question();
+	
+</script>
+
+</body>
+</html>
+
